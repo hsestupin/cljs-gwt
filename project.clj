@@ -5,7 +5,8 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2156"]
                  [compojure "1.0.4"]
-                 [hiccup "1.0.0"]]
+                 [hiccup "1.0.0"]
+                 [prismatic/dommy "0.1.2"]]
 
   :plugins [[lein-cljsbuild "1.0.1"]
             [lein-ring "0.7.0"]]

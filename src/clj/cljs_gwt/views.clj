@@ -8,6 +8,7 @@
 (defn index-page []
   (html5
     (include-css "/css/cljs_gwt.css")
+    (include-css "/css/dark/dark.css")
     [:h1 "Web Application Starter Project"]
     [:table {:align "center"}
      [:tr [:td {:style "font-weight:bold;", :colspan "2"}
