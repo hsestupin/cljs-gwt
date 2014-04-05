@@ -9,6 +9,7 @@
   (html5
     (include-css "/css/cljs_gwt.css")
     (include-css "/css/dark/dark.css")
+    (include-js "http://fb.me/react-0.9.0.js")
     [:h1 "Web Application Starter Project"]
     [:table {:align "center"}
      [:tr [:td {:style "font-weight:bold;", :colspan "2"}

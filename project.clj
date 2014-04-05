@@ -3,7 +3,8 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2156"]
+                 [org.clojure/clojurescript "0.0-2173"]
+                 [om "0.5.3"]
                  [compojure "1.0.4"]
                  [hiccup "1.0.0"]
                  [prismatic/dommy "0.1.2"]]
