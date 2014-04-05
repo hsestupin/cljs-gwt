@@ -6,6 +6,7 @@
 
 (enable-console-print!)
 
+; implementation using simple dom manipulation
 (let [send-button (ui/new-button "Send")
       name-field (ui/new-text-box)
       error-label (ui/new-label)]

@@ -22,8 +22,8 @@
     be removed from the tab order"))
 
 (def focus-widget
-  {:get-tab-index (fn [this])}
-  {:set-access-key! (fn [this ^char key])}
-  {:set-focus! (fn [this ^boolean focused?])}
-  {:set-tab-index! (fn [this ^int index])})
+  {:get-tab-index (fn [this])
+   :set-access-key! (fn [this ^char key])
+   :set-focus! (fn [this ^boolean focused?])
+   :set-tab-index! (fn [this ^int index])})
 

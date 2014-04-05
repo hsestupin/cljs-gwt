@@ -4,8 +4,7 @@
   (:use [cljs-gwt.ui.protocols :only [Focusable focus-widget]]
         [dommy.template :only [PElement]]))
 
-(defrecord TextBox [el]
-  Focusable focus-widget
-
+(deftype TextBox [el]
   PElement
   (-elem [this] el))
+
