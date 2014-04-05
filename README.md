@@ -42,20 +42,34 @@ And now look at another version of the same UI built with <a href="https://githu
 (defn button [data owner]
   (om/component
     (dom/button #js {:type "button" :className (str "gwt-Button" " " (:className data))} (:name data))))
+
 (defn text-box [data owner]
-  (om/component
-    (dom/input #js {:type "text" :className "gwt-TextBox"})))
+  (reify
+    om.core/IRender
+    (render [_]
+      (dom/input #js {:type "text" :className "gwt-TextBox"}))
+    om.core/IDidMount
+    (did-mount [_]
+      (when (:focus? data)
+        (.focus (om/get-node owner))))))
+
 (defn label [data owner]
   (om/component
     (if (:inline? data)
       (dom/span #js {:className "gwt-Label"})
       (dom/div #js {:className "gwt-Label"}))))
 
-(om/root button {:name "Send" :className "sendButton"}
+(def app-state
+  (atom
+    {:button {:name "Send" :className "sendButton"}
+     :text-box {:focus? true}
+     :label {:inline? false}}))
+
+(om/root button (:button @app-state)
   {:target (by-id "sendButtonContainer")})
-(om/root text-box {}
+(om/root text-box (:text-box @app-state)
   {:target (by-id "nameFieldContainer")})
-(om/root label {:inline false}
+(om/root label (:label @app-state)
   {:target (by-id "errorLabelContainer")})
 ```
 
