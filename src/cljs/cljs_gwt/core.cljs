@@ -66,7 +66,7 @@
 (def app-state
   (atom
     {:button {:name "Send" :className "sendButton"}
-     :text-box {:focus? true}
+     :text-box {:focus? true :text "GWT User"}
      :label {:inline? false}}))
 
 (om/root button (:button @app-state)
