@@ -1,7 +1,7 @@
 Hello.
 This project is the place where I can keep all my thoughts about how the clojurescript port of GWT may actually look.
 
-First here is straightforward implementation of GWT using simple dom manipulations. It's not full completed yet:
+First here is straightforward implementation of basic GWT widgets using simple dom manipulations. It's not full completed yet:
 
 ```clojure
 (defn new-button [name]
