@@ -47,11 +47,20 @@
   (om/component
     (dom/button #js {:type "button" :className (str "gwt-Button" " " (:className data))} (:name data))))
 
+(defn handle-change [e owner {:keys [text]}]
+  (om/set-state! owner :text (.. e -target -value)))
+
 (defn text-box [data owner]
   (reify
-    om.core/IRender
-    (render [_]
-      (dom/input #js {:type "text" :className "gwt-TextBox"}))
+    om/IInitState
+    (init-state [_]
+      {:text (:init-value data)})
+    om.core/IRenderState
+    (render-state [_ state]
+      (dom/input #js {:type "text"
+                      :className "gwt-TextBox"
+                      :value (:text state)
+                      :onChange #(handle-change % owner state)}))
     om.core/IDidMount
     (did-mount [_]
       (when (:focus? data)
@@ -63,10 +72,12 @@
       (dom/span #js {:className "gwt-Label"})
       (dom/div #js {:className "gwt-Label"}))))
 
+;(defn )
+
 (def app-state
   (atom
     {:button {:name "Send" :className "sendButton"}
-     :text-box {:focus? true :text "GWT User"}
+     :text-box {:focus? true :init-value "GWT User"}
      :label {:inline? false}}))
 
 (om/root button (:button @app-state)
